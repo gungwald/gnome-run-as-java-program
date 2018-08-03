@@ -1,0 +1,31 @@
+Search results
+Metadata 
+
+Nautilus Extension - Happy Java
+.jar
+    Determine if runnable, provide run option
+    If no Frame or JFrame, run with a terminal
+    Show main class along with version numbers
+    Show first few contained files with version numbers
+    Show any interesting info from MANIFEST.MF
+    If runnable, make the default Open action to run it
+    Else open as archive
+.class
+    If contains main, make Open run it
+    Show version numbers
+    Show package
+    Show public member variables & functions
+    Option to open with decompiler
+    Build runnable jar, if is main class
+.java
+    Show package
+    Show public member variables & functions
+    Open with various editors
+    Compile with javac, ecj, gcj
+    Generate javadoc
+pom.xml
+    Run Maven build with various targets
+build.xml
+    Run Ant build
+build.gradle
+    Run Gradle build
