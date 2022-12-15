@@ -13,7 +13,8 @@ else
     exit 1
 fi
 
-JAVA=$($ALT_CMD | grep --only-matching '^/[^ ]*' | zenity \
+unset ALT_JAVA
+ALT_JAVA=$($ALT_CMD | grep --only-matching '^/[^ ]*' | zenity \
     --list \
     --title="Run as Java Program with Alterate Java" \
     --text="Select Java version to run:" \
@@ -21,15 +22,14 @@ JAVA=$($ALT_CMD | grep --only-matching '^/[^ ]*' | zenity \
     --hide-header \
     --column Java 2> /dev/null)
 
-if [ -z "$JAVA" ]
+if [ -z "$ALT_JAVA" ]
 then
     exit 1
 fi
 
-alias java="$JAVA"
-
 # With terminal
 # Enter arguments
 
-"$(dirname "$0")/Run as Java Program"
+export ALT_JAVA
+sh -x "$(dirname "$0")/Run as Java Program"
 

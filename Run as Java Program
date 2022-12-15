@@ -69,15 +69,15 @@ processOneFile()
 
     if [ "$extn" = 'jar' ]
     then
-        run java -jar "$1"
+        run "$JAVA" -jar "$1"
     elif [ "$extn" = 'class' ]
     then
-        runWithTerminal java -cp "$dirn" "$clas"
+        runWithTerminal "$JAVA" -cp "$dirn" "$clas"
     elif [ "$extn" = 'java' ]
     then
         (   cd "$dirn"
-            javac "$bnam"
-            runWithTerminal java -cp . "$clas"
+            `dirname "$JAVA"`/javac "$bnam"
+            runWithTerminal "$JAVA" -cp . "$clas"
         )
     else
         error $bnam is not the right type of file to run as a Java \
@@ -89,6 +89,17 @@ processOneFile()
             a main method. Otherwise it will fail to run.
     fi
 }
+
+# Handle possible call from "Run as Java Program with Alternat Java"
+if [ -e "$ALT_JAVA" ]
+then
+	JAVA="$ALT_JAVA"
+elif [ -d "$JAVA_HOME" ]
+then
+	JAVA="$JAVA_HOME"/bin/java
+else
+	JAVA=java
+fi
 
 # Note on NAUTILUS_SCRIPT_SELECTED_FILE_PATHS variable provided as by 
 # Nautilus:
