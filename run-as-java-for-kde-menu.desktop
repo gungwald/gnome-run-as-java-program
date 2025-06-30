@@ -1,0 +1,15 @@
+[Desktop Entry]
+# https://develop.kde.org/docs/apps/dolphin/service-menus/
+# The type for KDE?
+Type=Service
+# The first one is correct. The others are older
+MimeType=application/java-archive;application/x-java-archive;application/x-jar
+# Must match a below Desktop Action
+Actions=runAsJavaProgram
+
+[Desktop Action runAsJavaProgram]
+Name=Run as Java Program
+# TODO: Needs to be made more generic
+Icon=/usr/share/icons/hicolor/48x48/apps/java-21-openjdk.png
+# TODO: Handle case where Java doesn't exist
+Exec=java -jar %u
