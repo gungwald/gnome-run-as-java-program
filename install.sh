@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# All of these should probably be installed in case desktops that are not
+# installed now are installed in the future. That will prevent the user
+# from having to go back and run this installer again.
+
 targetDir=$HOME/.local/share/nautilus/scripts
 
 for script in Run*
