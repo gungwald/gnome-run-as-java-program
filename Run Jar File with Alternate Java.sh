@@ -31,5 +31,5 @@ fi
 # Enter arguments
 
 export ALT_JAVA
-sh -x "$(dirname "$0")/Run as Java Program"
+sh -x "$(dirname "$0")/Run Jar File as Java Program.sh"
 
